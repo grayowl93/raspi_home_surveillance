@@ -31,6 +31,31 @@ https://qiita.com/Kazuya_Murakami/items/bc520430fc1efdd0d118
 22 Tr4+PWM0-Buzzer  
   
   
+  サービスの登録  
+/etc/systemd/system/zushi.service  
+
+zushi.serviceの中身  
+[Unit]  
+Description=Survaillance zushi  
+  
+[Service]  
+Type=simple  
+WorkingDirectory=/home/orca  
+ExecStart=/usr/bin/python3 -m surveillance_zushi.py  
+  
+[Install]  
+WantedBy=multi-user.target  
+  
+
+ソースファイルの内容  
+surveillance_zushi.py  :監視プログラム本体
+  
+chk_gpio.py           :GPIOのテスト  
+IR_Test.py            :焦電センサーのテスト  
+sendGmail.py          :Gmail送信テスト  
+sendShortMessage.py   :ショートメッセージのテスト  
+  
+  
 ターミナルターミナルターミナルterminal  
 >ls -l /dev/tty.*  
   
