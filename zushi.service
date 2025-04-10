@@ -1,0 +1,11 @@
+[Unit]
+Description=Survaillance zushi
+
+[Service]
+Type=simple
+WorkingDirectory=/home/orca
+ExecStart=/usr/bin/python3 -m surveillance_zushi.py
+
+[Install]
+WantedBy=multi-user.target
+
